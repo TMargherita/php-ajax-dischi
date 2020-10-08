@@ -1,0 +1,30 @@
+.album {
+  display: flex;
+  flex-wrap: wrap;
+
+  .cd {
+    width: calc((100% / 3) - 80px);
+    margin: 20px 40px;
+    padding: 20px 20px 90px 20px;
+    background-color: $bgColorMainLight;
+    text-align: center;
+
+    &-poster {
+      img {
+        width: 100%;
+      }
+    }
+
+    &-title {
+      color: $titleColor;
+      text-transform: uppercase;
+      font-size: 24px;
+      margin: 25px;
+    }
+
+    &-author, &-year {
+      color: $textColor;
+      font-size: 18px;
+    }
+  }
+}

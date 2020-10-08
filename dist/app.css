@@ -1,0 +1,52 @@
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap);* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  background-color: #2E3A46;
+  padding: 5px 0;
+}
+header .logo {
+  width: 55px;
+}
+header .logo img {
+  width: 100%;
+}
+
+main {
+  background-color: #1E2D3B;
+  padding: 70px 0;
+}
+
+.album {
+  display: flex;
+  flex-wrap: wrap;
+}
+.album .cd {
+  width: calc((100% / 3) - 80px);
+  margin: 20px 40px;
+  padding: 20px 20px 90px 20px;
+  background-color: #2E3A46;
+  text-align: center;
+}
+.album .cd-poster img {
+  width: 100%;
+}
+.album .cd-title {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 24px;
+  margin: 25px 0;
+}
