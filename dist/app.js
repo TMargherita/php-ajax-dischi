@@ -16102,7 +16102,65 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 
 var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
 
-$(document).ready(function () {});
+$(document).ready(function () {
+  $.ajax({
+    "url": "http://localhost/php-ajax-dischi/server.php",
+    "method": "GET",
+    "success": function success(data) {
+      render(data);
+      printAuthorSelect(data);
+    },
+    "error": function error(err) {
+      alert("Errore");
+    }
+  });
+  $("#select-authors").change(function () {
+    var author = $(this).val();
+    $.ajax({
+      "url": "http://localhost/php-ajax-dischi/server.php",
+      "data": {
+        "author": author
+      },
+      "method": "GET",
+      "success": function success(data) {
+        render(data);
+      },
+      "error": function error(err) {
+        alert("Errore");
+      }
+    });
+  });
+}); //funzione che ritorna i risultat all'interno del template dei cds
+
+function render(data) {
+  var source = $("#cd-template").html();
+  var template = Handlebars.compile(source);
+
+  for (var i = 0; i < data.length; i++) {
+    printAuthorSelect(data[i]["author"]);
+    var html = template(data[i]);
+    $("album").append(html);
+  }
+}
+
+function printAuthorSelect(author) {
+  var author = [];
+
+  for (var i = 0; i < data.length; i++) {
+    var author = data[i]["author"];
+
+    if (!authors.include(auhtor)) {
+      var source = $("#author-option-template").html();
+      var template = Handlebars.compile(source);
+      var context = {
+        "author": author
+      };
+      var html = template(data[i]);
+      $("#select-authors").append(html);
+      author.push(author);
+    }
+  }
+}
 
 /***/ }),
 
